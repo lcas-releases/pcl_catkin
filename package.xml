@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>pcl_catkin_c11</name>
-  <version>1.8.2</version>
+  <version>1.8.3</version>
   <description>A catkin wrapper of the Point Cloud Library (PCL).</description>
   <maintainer email="marc@hanheide.net">Marc Hanheide</maintainer>
   <author>Fadri Furrer</author>
@@ -12,7 +12,7 @@
   <build_depend>libqhull</build_depend>
   <build_depend>libflann-dev</build_depend>
   <build_depend>libvtk</build_depend>
-  <build_depend>libusb-dev</build_depend>
+  <build_depend>libusb-1.0-dev</build_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>git</build_depend>
 
