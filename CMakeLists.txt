@@ -28,18 +28,22 @@ PCL_CHECK_FOR_SSE()
 SET(PCL_CXX_FLAGS "-Wall -Wextra -Wno-unknown-pragmas -fno-strict-aliasing -Wno-format-extra-args -Wno-sign-compare -Wno-invalid-offsetof -Wno-conversion -DBOOST_UUID_RANDOM_GENERATOR_COMPAT ${SSE_FLAGS} -Wabi")
 SET(PCL_CXX_FLAGS "${PCL_CXX_FLAGS} -std=c++11")
 
-ExternalProject_Add(pcl_src
-  GIT_REPOSITORY  https://github.com/ethz-asl/pcl
-  GIT_TAG pcl_1.8.0_devel
-  UPDATE_COMMAND ""
-  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_INSTALL_PREFIX}/pcl_c11
-             -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
-             -DCMAKE_CXX_FLAGS:STRING=${PCL_CXX_FLAGS}
-             "-DCMAKE_CXX_FLAGS_${UC_BUILD_TYPE}=${CMAKE_CXX_FLAGS_${UC_BUILD_TYPE}} ${PCL_CXX_FLAGS}"
-)
+#ExternalProject_Add(pcl_src
+#  GIT_REPOSITORY  https://github.com/ethz-asl/pcl
+#  GIT_TAG pcl_1.8.0_devel
+#  UPDATE_COMMAND ""
+#  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_INSTALL_PREFIX}/pcl_c11
+#             -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
+#             -DCMAKE_CXX_FLAGS:STRING=${PCL_CXX_FLAGS}
+#             "-DCMAKE_CXX_FLAGS_${UC_BUILD_TYPE}=${CMAKE_CXX_FLAGS_${UC_BUILD_TYPE}} ${PCL_CXX_FLAGS}"
+#)
+
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${PCL_CXX_FLAGS}")
+add_subdirectory(pcl)
 
 cs_add_library(${PROJECT_NAME} src/dependency_tracker.cc)
-add_dependencies(${PROJECT_NAME} pcl_src)
+add_dependencies(${PROJECT_NAME} pcl_viewer)
 
 cs_install()
 install(DIRECTORY ${PCL_CATKIN_INCLUDE}
