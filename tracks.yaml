@@ -7,9 +7,9 @@ tracks:
       --replace
     - git-bloom-generate -y rosrelease :{ros_distro} --source upstream -i :{release_inc}
     - git-bloom-generate -y rosdebian --prefix release/:{ros_distro} :{ros_distro}
-      -i :{release_inc} --os-name ubuntu
+      -i :{release_inc} --os-name ubuntu --install-prefix /opt/ros/kinetic/pcl_c11
     - git-bloom-generate -y rosdebian --prefix release/:{ros_distro} :{ros_distro}
-      -i :{release_inc} --os-name debian --os-not-required
+      -i :{release_inc} --os-name debian --os-not-required --install-prefix /opt/ros/kinetic/pcl_c11
     - git-bloom-generate -y rosrpm --prefix release/:{ros_distro} :{ros_distro} -i
       :{release_inc}
     devel_branch: lcas_c11
