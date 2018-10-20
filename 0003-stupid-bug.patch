@@ -1,0 +1,59 @@
+From f72e571cbc2a76e90ea4e469e091f0ce300f96d2 Mon Sep 17 00:00:00 2001
+From: Marc Hanheide <marc@hanheide.net>
+Date: Sat, 20 Oct 2018 21:08:40 +0100
+Subject: [PATCH 3/3] stupid bug
+
+---
+ debian/rules.em | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/debian/rules.em b/debian/rules.em
+index 1c2e40f..46a19c7 100755
+--- a/debian/rules.em
++++ b/debian/rules.em
+@@ -26,7 +26,7 @@ override_dh_auto_configure:
+ 	# in the install tree that was dropped by catkin, and source it.  It will
+ 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+-	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh/setup.sh"; fi && \
++	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh"; fi && \
+ 	dh_auto_configure -- \
+ 		-DCATKIN_BUILD_BINARY_PACKAGE="1" \
+ 		-DCMAKE_INSTALL_PREFIX="@(InstallationPrefix)" \
+@@ -37,7 +37,7 @@ override_dh_auto_build:
+ 	# in the install tree that was dropped by catkin, and source it.  It will
+ 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+-	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh/setup.sh"; fi && \
++	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh"; fi && \
+ 	dh_auto_build
+ 
+ override_dh_auto_test:
+@@ -46,7 +46,7 @@ override_dh_auto_test:
+ 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+ 	echo -- Running tests. Even if one of them fails the build is not canceled.
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+-	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh/setup.sh"; fi && \
++	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh"; fi && \
+ 	dh_auto_test || true
+ 
+ override_dh_shlibdeps:
+@@ -54,7 +54,7 @@ override_dh_shlibdeps:
+ 	# in the install tree that was dropped by catkin, and source it.  It will
+ 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+-	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh/setup.sh"; fi && \
++	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh"; fi && \
+ 	dh_shlibdeps -l$(CURDIR)/debian/@(Package)/@(InstallationPrefix)/lib/
+ 
+ override_dh_auto_install:
+@@ -62,5 +62,5 @@ override_dh_auto_install:
+ 	# in the install tree that was dropped by catkin, and source it.  It will
+ 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+-	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh/setup.sh"; fi && \
++	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh"; fi && \
+ 	dh_auto_install
+-- 
+2.7.4
+

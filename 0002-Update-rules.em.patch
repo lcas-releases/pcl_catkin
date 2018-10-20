@@ -1,7 +1,7 @@
-From fe152b9ce7e1048e09ca537db7fdee03e8208fb0 Mon Sep 17 00:00:00 2001
+From 605673df668dd3e585bf90dddadb4710aef77d56 Mon Sep 17 00:00:00 2001
 From: Marc Hanheide <marc@hanheide.net>
 Date: Sat, 20 Oct 2018 20:36:35 +0100
-Subject: [PATCH 2/2] Update rules.em
+Subject: [PATCH 2/3] Update rules.em
 
 ---
  debian/rules.em | 1 +
