@@ -1,0 +1,24 @@
+From fe152b9ce7e1048e09ca537db7fdee03e8208fb0 Mon Sep 17 00:00:00 2001
+From: Marc Hanheide <marc@hanheide.net>
+Date: Sat, 20 Oct 2018 20:36:35 +0100
+Subject: [PATCH 2/2] Update rules.em
+
+---
+ debian/rules.em | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/debian/rules.em b/debian/rules.em
+index 46eaa1b..1c2e40f 100755
+--- a/debian/rules.em
++++ b/debian/rules.em
+@@ -26,6 +26,7 @@ override_dh_auto_configure:
+ 	# in the install tree that was dropped by catkin, and source it.  It will
+ 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
++	if [ -f "/opt/ros/kinetic/setup.sh" ]; then . "/opt/ros/kinetic/setup.sh/setup.sh"; fi && \
+ 	dh_auto_configure -- \
+ 		-DCATKIN_BUILD_BINARY_PACKAGE="1" \
+ 		-DCMAKE_INSTALL_PREFIX="@(InstallationPrefix)" \
+-- 
+2.7.4
+
