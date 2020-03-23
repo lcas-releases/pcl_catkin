@@ -1,0 +1,4 @@
+[submodule "pcl_catkin/pcl"]
+	path = pcl_catkin/pcl
+	url = https://github.com/ethz-asl/pcl
+	branch = pcl_1.8.0_devel
